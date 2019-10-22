@@ -3,17 +3,10 @@ Implement a function which receives a string and replaces all symbols "" with ' 
 """
 
 
-def replace_quotes(source_string: str):
-    new_string: str = ''
-    for i in range(0, len(source_string)):
-        if source_string[i] == '"':
-            new_string += "'"
-            continue
-        if source_string[i] == "'":
-            new_string += '"'
-            continue
-        new_string += source_string[i]
-    return str(new_string)
+def replace_quotes(source_string: str) -> str:
+    return source_string.translate(
+        source_string.maketrans({"'": '"', '"': "'"})
+    )
 
 
 def main():

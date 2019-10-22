@@ -4,21 +4,14 @@ functions is prohibited.
 """
 
 
-def is_palindrome(source_string: str):
+def is_palindrome(source_string: str) -> bool:
     source_string = source_string.replace(' ', '')
     source_string = source_string.replace('\'', '')
     source_string = source_string.replace('–', '')
     source_string = source_string.replace(',', '')
     source_string = source_string.lower()
 
-    i: int = 0
-    j: int = len(source_string) - 1
-    while (i <= (len(source_string) // 2)) & (j >= (len(source_string) // 2)):
-        if source_string[i] != source_string[j]:
-            return False
-        i += 1
-        j -= 1
-    return True
+    return source_string == source_string[::-1]
 
 
 def main():
